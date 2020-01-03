@@ -37,8 +37,7 @@ Hello world. 3
 
 Constraints You can only use const (no let or var).
 */
-///*
-const seg = 1000
+/*const seg = 1000
 infMsg = (i) => {
     i++;
     console.log('Hello world. ' + i)
@@ -47,3 +46,45 @@ infMsg = (i) => {
 
 setTimeout(infMsg, seg, 0);
 //*/
+
+// Extra Challenge 2
+/*
+Just like Challenge 1 but this time with repeated delay values.
+Print Hello World 5 times with delay of 100ms.
+Then print it again 5 more times with delay of 200ms.
+Then print it again 5 more times with delay of 300ms.
+And so on until the program is killed.
+
+Include delay in the printed message:
+Hello World. 100
+Hello World. 100
+Hello World. 100
+Hello World. 100
+Hello World. 100
+Hello World. 200
+Hello World. 200
+Hello World. 200
+Hello World. 200
+Hello World. 200
+Hello World. 300
+Hello World. 300
+Hello World. 300
+Hello World. 300
+Hello World. 300
+*/
+const times = 5;
+const delay = 100;
+infMsg = (i, count) => {
+    console.log('Hello world. ' + (count * delay));
+    i++;
+    if (i > times) {
+        count++;
+        i = 1;
+        if (count > 3) {
+            return;
+        }
+    }
+    setTimeout(infMsg, delay * count, i, count);
+}
+
+setTimeout(infMsg, delay, 1, 1);
